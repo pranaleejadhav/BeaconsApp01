@@ -262,8 +262,6 @@ store items photos.
         "__v": 0
     },
 
-## APP
-
 
 
 
