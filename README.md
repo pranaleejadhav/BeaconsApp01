@@ -1,5 +1,10 @@
 # BeaconsApp01
 
+## iOS Mobile APP
+Features:
+a) The  application  consists  of  a  single  window  that  will enable  the  user  to  view  the discounted items around him/her while shopping in the store. 
+b) When  the  user  is  in  the  store,  the  app  should  locate  the  closest  beacon  and present only the products for the region belonging to the closest beacon.
+
 ## API
 
 API that enables fetching of discounted items in a specific region. All the items are stored in Database, we have Mongo DB Atlas 
@@ -11,6 +16,7 @@ store items photos.
 * [Expressjs](http://expressjs.com/zh-tw/) - API Server
 * [Nodejs](https://nodejs.org/en/) - Backend Framework
 * [NPM](https://www.npmjs.com/) - Package Management
+* xcode - iOS IDE
 
 ## Packages ##
 >1. [Mongoose](http://mongoosejs.com/) - mongodb object modeling
@@ -254,5 +260,7 @@ store items photos.
     },
 
 ## APP
+
+
 
 
