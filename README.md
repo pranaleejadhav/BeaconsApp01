@@ -1,4 +1,4 @@
-# BeaconsApp01
+# BeaconsApp
 
 ## iOS Mobile APP
 Features:
