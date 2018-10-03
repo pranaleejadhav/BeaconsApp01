@@ -26,7 +26,7 @@ store items photos.
   
      Request:
      
-     {
+     { 
      
         "discount": 10,  
         "name": "Pineapple",
