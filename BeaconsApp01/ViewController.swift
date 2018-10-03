@@ -30,9 +30,16 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
     var minoruids = [UInt16?]()
     var regionIdentifiers = [String]()
     var tableArray = [Dictionary<String, Any>]()
-    var counter1:Int = 0
+    var counter:Int = 0
+    var newid = ""
     var beaconsFnd = Dictionary<String, Int>()
+    var beaconsCtr = Dictionary<String, Int>()
     var currid = "-1";
+    var counter1 = 0;
+    var counter2 = 0;
+    var counter3 = 0;
+    
+    
     
     @IBOutlet weak var header: UILabel!
     enum MyBeacon: String {
@@ -53,7 +60,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         majoruids = [55125,59599,1564];
         minoruids = [738,33091,34409]
         regionIdentifiers = ["grocery","lifestyle","produce"]
-       setupBeaconManager()
+        setupBeaconManager()
        tableView.tableFooterView = UIView()
         getData(path: "getdata")
         
@@ -103,6 +110,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
     
     func beaconManager(_ manager: Any, didEnter region: CLBeaconRegion) {
         print("Hello beacons from \(region.identifier)")
+        BeaconManager.main.startRangingBeacons(in: region)
        
     }
     
@@ -110,11 +118,11 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         
         print("Bye bye beacons from \(region.identifier)")
 
-        BeaconManager.main.stopRangingBeacons(in: region)
+        //BeaconManager.main.stopRangingBeacons(in: region)
         beaconsFnd.removeValue(forKey: (region.minor?.stringValue)!)
         if beaconsFnd.count > 0 {
             
-            let minval = beaconsFnd.min { a, b in a.value < b.value }
+            let minval = beaconsFnd.max { a, b in a.value < b.value }
             
             updateUI(minorid: (minval?.key)!)
         } else {
@@ -134,22 +142,65 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         if let firstBeacon = knownBeacons.first,
             let myBeacon = MyBeacon(rawValue:firstBeacon.minor.stringValue)   {
             var str = firstBeacon.minor.stringValue
-            beaconsFnd[str] = firstBeacon.proximity.intValue
-            let minval = beaconsFnd.min { a, b in a.value < b.value }
+            if beaconsFnd.keys.contains(str)  {
+                if beaconsFnd[str]! <= 10{
+                    beaconsFnd[str] = beaconsFnd[str]! + firstBeacon.proximity.intValue
+                }
+            } else {
+                beaconsFnd[str] =  firstBeacon.proximity.intValue
+            }
             print(beaconsFnd)
+            //beaconsFnd[str] = firstBeacon.proximity.intValue
+            let minval = beaconsFnd.max { a, b in a.value < b.value }
+            
+            print((minval?.key)!)
             updateUI(minorid: (minval?.key)!)
-            /*var near = firstBeacon.proximity.intValue
-            var id = str
-            for (key,value) in beaconsFnd {
-                print("\(key) = \(value)")
-                if value<near {
-                    near = value
-                    id = key
+            
+            /*var temp = (minval?.key)!
+            if temp != currid {
+                if newid == "" || (newid != temp){
+                    newid = (minval?.key)!
+                    counter = 1
+                } else {
+                    counter = counter + 1
+                }
+                if counter==2{
+                    updateUI(minorid: temp)
+                }
+            }*/
+            
+        } else {
+            //print("region identifier")
+            //print(region.minor?.stringValue)
+            var str:String = (region.minor?.stringValue)!
+            if beaconsFnd.keys.contains(str) && beaconsFnd[str]! > 0{
+                
+                if beaconsFnd[str]==1{
+                    if beaconsCtr.keys.contains(str) {
+                        if beaconsCtr[str]==1{
+                            //beaconsCtr[str] = 0
+                            beaconsCtr.removeValue(forKey: str)
+                            //beaconsFnd[str] = 0
+                            beaconsFnd.removeValue(forKey: str)
+                            
+                        } /*else {
+                            beaconsFnd[str] = 1
+                            beaconsCtr[str] = 2
+                        }*/
+                    } else {
+                        beaconsCtr[str] = 1
+                        beaconsFnd[str] = 1
+                    }
+                } else {
+                    beaconsFnd[str] = beaconsFnd[str]! - 1
+                }
+                if beaconsFnd.count > 0 {
+                    let minval = beaconsFnd.max { a, b in a.value < b.value }
+                    updateUI(minorid: (minval?.key)!)
+                } else {
+                    updateUI(minorid: "-1")
                 }
             }
-            print("closest")
-            updateUI(minorid: id)*/
-            
         }
        
     }
@@ -207,14 +258,23 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 80.0
     }
     
     func updateUI(minorid: String){
-        if currid == minorid {
-            
-        } else {
+        
+        if beaconsFnd.count == 0 || beaconsFnd[minorid] == 0 {
+            currid = " -1"
+            print("changed to currid -1")
+            header.text = "All Items"
+            getData(path: "getdata")
+        } else
+       if currid == minorid || (beaconsFnd[currid] == beaconsFnd[minorid] ){
+            //
+            print("in same currid ")
+       }   else {
          currid = minorid
+        print("changed to currid \(currid)")
         if minorid == "738"{
             
             header.text = "Grocery"
@@ -238,14 +298,16 @@ extension CLProximity {
     var intValue: Int {
         switch self {
         case .unknown:
-            return 4
+            return 0
         case .immediate:
-            return 1
+            return 3
         case .near:
             return 2
         case .far:
-            return 3
+            return 1
         }
     }
 }
-
+//proximity same
+//sort by region
+//list label next line
