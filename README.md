@@ -2,7 +2,10 @@
 
 ## iOS Mobile APP
 Features:
+
 a) The  application  consists  of  a  single  window  that  will enable  the  user  to  view  the discounted items around him/her while shopping in the store. 
+
+
 b) When  the  user  is  in  the  store,  the  app  should  locate  the  closest  beacon  and present only the products for the region belonging to the closest beacon.
 
 ## API
