@@ -48,16 +48,6 @@ store items photos.
      
      [ 
      
-    {  
-    
-        "_id": "5bac56b8c96bd80332ab011e",
-        "discount": 10,
-        "name": "Pineapple",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/pineapple.png",
-        "price": 1.18,
-        "region": "produce",
-        "__v": 0
-    },
     { 
     
         "_id": "5bac5720c96bd80332ab011f",
@@ -78,46 +68,6 @@ store items photos.
         "region": "grocery",
         "__v": 0
     },
-    { 
-    
-        "_id": "5bac57a9c96bd80332ab0121",
-        "discount": 20,
-        "name": "Dial Soap",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/dial_soap.jpg",
-        "price": 2.99,
-        "region": "lifestyle",
-        "__v": 0
-    },
-    { 
-    
-        "_id": "5bac57b7c96bd80332ab0122",
-        "discount": 10,
-        "name": "Oranges",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/oranges.png",
-        "price": 0.89,
-        "region": "produce",
-        "__v": 0
-    },
-    {
-    
-        "_id": "5bac57c1c96bd80332ab0123",
-        "discount": 15,
-        "name": "Scotch Brite Sponges",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/scotch-brite-sponges.png",
-        "price": 5.89,
-        "region": "lifestyle",
-        "__v": 0
-    },
-    {
-    
-        "_id": "5bac57ccc96bd80332ab0124",
-        "discount": 15,
-        "name": "Fresh Express Lettuce",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/lettuce.jpg",
-        "price": 3.69,
-        "region": "produce",
-        "__v": 0
-    },
     {
     
         "_id": "5bac57d6c96bd80332ab0125",
@@ -136,26 +86,6 @@ store items photos.
         "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/gatorade.png",
         "price": 3.89,
         "region": "grocery",
-        "__v": 0
-    },
-    {
-    
-        "_id": "5bac57e9c96bd80332ab0127",
-        "discount": 10,
-        "name": "Organix Conditioner",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/organix-conditioner.png",
-        "price": 13.46,
-        "region": "lifestyle",
-        "__v": 0
-    },
-    {
-    
-        "_id": "5bac57f2c96bd80332ab0128",
-        "discount": 10,
-        "name": "Spinach",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/spinach.png",
-        "price": 1.23,
-        "region": "produce",
         "__v": 0
     },
     { 
@@ -188,6 +118,87 @@ store items photos.
         "region": "grocery",
         "__v": 0
     },
+    { 
+    
+        "_id": "5bac57a9c96bd80332ab0121",
+        "discount": 20,
+        "name": "Dial Soap",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/dial_soap.jpg",
+        "price": 2.99,
+        "region": "lifestyle",
+        "__v": 0
+    },
+    {
+    
+        "_id": "5bac57c1c96bd80332ab0123",
+        "discount": 15,
+        "name": "Scotch Brite Sponges",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/scotch-brite-sponges.png",
+        "price": 5.89,
+        "region": "lifestyle",
+        "__v": 0
+    },
+    {
+    
+        "_id": "5bac57e9c96bd80332ab0127",
+        "discount": 10,
+        "name": "Organix Conditioner",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/organix-conditioner.png",
+        "price": 13.46,
+        "region": "lifestyle",
+        "__v": 0
+    },
+    {
+    
+        "_id": "5bac585bc96bd80332ab012e",
+        "discount": 15,
+        "name": "US Weekly",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/us-weekly.png",
+        "price": 4.99,
+        "region": "lifestyle",
+        "__v": 0
+    },
+    {  
+    
+        "_id": "5bac56b8c96bd80332ab011e",
+        "discount": 10,
+        "name": "Pineapple",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/pineapple.png",
+        "price": 1.18,
+        "region": "produce",
+        "__v": 0
+    },
+    { 
+    
+        "_id": "5bac57b7c96bd80332ab0122",
+        "discount": 10,
+        "name": "Oranges",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/oranges.png",
+        "price": 0.89,
+        "region": "produce",
+        "__v": 0
+    },
+    {
+    
+        "_id": "5bac57ccc96bd80332ab0124",
+        "discount": 15,
+        "name": "Fresh Express Lettuce",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/lettuce.jpg",
+        "price": 3.69,
+        "region": "produce",
+        "__v": 0
+    },
+    {
+    
+        "_id": "5bac57f2c96bd80332ab0128",
+        "discount": 10,
+        "name": "Spinach",
+        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/spinach.png",
+        "price": 1.23,
+        "region": "produce",
+        "__v": 0
+    },
+    
     {
     
         "_id": "5bac5849c96bd80332ab012c",
@@ -208,16 +219,7 @@ store items photos.
         "region": "produce",
         "__v": 0
     },
-    {
     
-        "_id": "5bac585bc96bd80332ab012e",
-        "discount": 15,
-        "name": "US Weekly",
-        "photo": "https://s3.us-east-2.amazonaws.com/admadphotos/us-weekly.png",
-        "price": 4.99,
-        "region": "lifestyle",
-        "__v": 0
-    }
 ] 
 
 * **/getproductdata/{regionName}**
