@@ -2,8 +2,8 @@
 
 ## API
 
-API that enables fetching of discounted items in a specific region. All the items are stored in Database, i have Mongo DB Atlas 
-for storing the items as it is a cloud database and easy to integrate when the API is deployed in AWS. I have used Amazon S3 to 
+API that enables fetching of discounted items in a specific region. All the items are stored in Database, we have Mongo DB Atlas 
+for storing the items as it is a cloud database and easy to integrate when the API is deployed in AWS. we have used Amazon S3 to 
 store items photos.
 
 ## Requirement ##
