@@ -32,6 +32,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
     var tableArray = [Dictionary<String, Any>]()
     var counter1:Int = 0
     var beaconsFnd = Dictionary<String, Int>()
+    var currid = "-1";
     
     @IBOutlet weak var header: UILabel!
     enum MyBeacon: String {
@@ -112,9 +113,12 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         BeaconManager.main.stopRangingBeacons(in: region)
         beaconsFnd.removeValue(forKey: (region.minor?.stringValue)!)
         if beaconsFnd.count > 0 {
+            
             let minval = beaconsFnd.min { a, b in a.value < b.value }
+            
             updateUI(minorid: (minval?.key)!)
         } else {
+            
             updateUI(minorid: "-1")
         }
       
@@ -132,6 +136,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
             var str = firstBeacon.minor.stringValue
             beaconsFnd[str] = firstBeacon.proximity.intValue
             let minval = beaconsFnd.min { a, b in a.value < b.value }
+            print(beaconsFnd)
             updateUI(minorid: (minval?.key)!)
             /*var near = firstBeacon.proximity.intValue
             var id = str
@@ -158,7 +163,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         let server_url = "http://ec2-18-221-45-243.us-east-2.compute.amazonaws.com:9800/\(path)"
         SVProgressHUD.show()
         Alamofire.request(server_url).responseJSON { (response:DataResponse<Any>) in
-           // print(response)
+            //print(response)
             
             switch response.result {
             case .success(let value):
@@ -206,8 +211,12 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
     }
     
     func updateUI(minorid: String){
-        
+        if currid == minorid {
+            
+        } else {
+         currid = minorid
         if minorid == "738"{
+            
             header.text = "Grocery"
             getData(path: "getproductdata/grocery")
         } else if minorid == "33091"{
@@ -220,6 +229,7 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate, UITableViewDat
         } else {
             header.text = "All Items"
             getData(path: "getdata")
+        }
         }
     }
     
